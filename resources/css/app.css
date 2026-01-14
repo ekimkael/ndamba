@@ -1,10 +1,44 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import 'tailwindcss';
+@source "../views";
 
-html,
-body {
-  height: 100%;
-  width: 100%;
+@theme {
+  /* Typographie */
+  --font-sans: 'Inter Tight', 'sans-serif';
+
+  /* Light Theme */
+  --color-surface: var(--color-white);
+  --color-surface-alt: var(--color-white);
+  --color-on-surface: var(--color-neutral-500);
+  --color-on-surface-strong: var(--color-neutral-700);
+  --color-primary: var(--color-red-700);
+  --color-on-primary: var(--color-white);
+  --color-secondary: var(--color-amber-400);
+  --color-on-secondary: var(--color-neutral-800);
+  --color-outline: var(--color-neutral-200);
+  --color-outline-strong: var(--color-neutral-500);
+
+  /* Dark Theme */
+  --color-surface-dark: var(--color-neutral-900);
+  --color-surface-dark-alt: var(--color-neutral-800);
+  --color-on-surface-dark: var(--color-violet-100);
+  --color-on-surface-dark-strong: var(--color-white);
+  --color-primary-dark: var(--color-red-700);
+  --color-on-primary-dark: var(--color-white);
+  --color-secondary-dark: var(--color-amber-500);
+  --color-on-secondary-dark: var(--color-neutral-800);
+  --color-outline-dark: var(--color-neutral-700);
+  --color-outline-dark-strong: var(--color-neutral-600);
+
+  /* Shared Colors */
+  --color-info: var(--color-blue-300);
+  --color-on-info: var(--color-sky-800);
+  --color-success: var(--color-green-300);
+  --color-on-success: var(--color-green-800);
+  --color-warning: var(--color-amber-300);
+  --color-on-warning: var(--color-amber-700);
+  --color-danger: var(--color-red-300);
+  --color-on-danger: var(--color-red-800);
+
+  /* Border Radius */
+  --radius-radius: var(--radius-xl);
 }
