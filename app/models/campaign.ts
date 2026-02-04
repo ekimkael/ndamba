@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { slugify } from '@adonisjs/lucid-slugify'
 
 export default class Campaign extends BaseModel {
   @column({ isPrimary: true })
@@ -7,6 +8,10 @@ export default class Campaign extends BaseModel {
 
   @column()
   declare name: string
+
+  @column()
+  @slugify({ strategy: 'dbIncrement', fields: ['name'] })
+  declare slug: string
 
   @column()
   declare description: string

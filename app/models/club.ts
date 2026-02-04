@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon'
+import { slugify } from '@adonisjs/lucid-slugify'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export default class Club extends BaseModel {
@@ -7,6 +8,10 @@ export default class Club extends BaseModel {
 
   @column()
   declare name: string
+
+  @column()
+  @slugify({ strategy: 'dbIncrement', fields: ['name'] })
+  declare slug: string
 
   @column()
   declare logo: string

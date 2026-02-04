@@ -5,7 +5,11 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.uuid('id').primary().defaultTo(this.raw('gen_random_uuid()'))
+
+      table.string('name').notNullable().unique()
+      table.string('slug').notNullable().unique()
+      table.string('logo').nullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

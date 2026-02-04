@@ -5,7 +5,23 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.uuid('id').primary().defaultTo(this.raw('gen_random_uuid()'))
+
+      table.uuid('season_id').notNullable().references('id').inTable('seasons')
+      table.uuid('user_id').notNullable().references('id').inTable('users')
+      table
+        .enu('type', [
+          'MVP',
+          'TOP_SCORER',
+          'TOP_ASSISTER',
+          'BEST_GOALKEEPER',
+          'BEST_DEFENDER',
+          'BEST_MIDFIELDER',
+          'BEST_FORWARD',
+        ])
+        .notNullable()
+      table.jsonb('stats').notNullable()
+      table.string('description').nullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')
